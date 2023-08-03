@@ -11,7 +11,6 @@ $user_agent_mock->mock(
     get => sub {
         my ($self, $url) = @_;
         if ($url eq 'https://ifsc.razorpay.com/KKBK0005652') {
-            print "===Insidr If $url===\n";
             return HTTP::Response->new( 200, 'OK', 
                                         ['Content-Type' => 'application/json'], 
                                         '{"BANK":"Kotak Mahindra Bank","BANKCODE":"KKBK","IFSC":"KKBK0005652"}'

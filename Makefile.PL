@@ -1,14 +1,22 @@
+use 5.006;
+use strict;
+use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME         => 'BankDetails::India',
-    VERSION_FROM => 'lib/BankDetails/India.pm',
-    PREREQ_PM    => {
+    NAME               => 'BankDetails::India',
+    AUTHOR             => q{Rohit R Manjrekar <manjrekarrohit76@gmail.com>},
+    VERSION_FROM       => 'lib/BankDetails/India.pm',
+    ABSTRACT_FROM      => 'lib/BankDetails/India.pm',
+    MIN_PERL_VERSION   => 5.006,
+    LICENSE            => 'mit',
+    CONFIGURE_REQUIRES => {
+        'ExtUtils::MakeMaker' => 0,
+    },
+    PREREQ_PM     => {
         'Carp'           => 0,
         'CHI'            => 0,
-        'Data::Dumper'   => 0,
         'Digest::MD5'    => 0,
-        'HTTP::Message'  => 0,
         'LWP::UserAgent' => 0,
         'Moose'          => 0,
         'Sereal'         => 0,
@@ -17,18 +25,24 @@ WriteMakefile(
         'Cwd'            => 0,
     },
     TEST_REQUIRES => {
-        'Test::More' => '0',
-        'Test::Exception' => '0',
-        'Test::MockObject' => '0',
-        'HTTP::Response' => 0,
+        'Test::More'        => 0,
+        'Test::Exception'   => 0,
+        'Test::MockObject'  => 0,
+        'HTTP::Response'    => 0,
     },
     "test" => {
         "TESTS" => "t/*.t"
     },
     META_MERGE => {
-        "meta-spec" => { version => 1.0 }
+        "meta-spec" => { version => 1.0 },
+        resources => {
+            repository => {
+                type => 'git',
+                url  => 'https://github.com/rmanjrekar/Webservice.git',
+                web  => 'https://github.com/rmanjrekar/Webservice',
+            },
+        },
     },
-    ($] >= 5.005 ?     ## Add these new keywords supported since 5.005
-      (ABSTRACT_FROM  => 'lib/BankDetails/India.pm',  # retrieve abstract from module
-       AUTHOR         => 'manjrekarrohit76@gmail.com') : ()),
+    dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+    clean => { FILES => 'BankDetails-India-*' },
 );
