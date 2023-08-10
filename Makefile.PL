@@ -13,16 +13,17 @@ WriteMakefile(
     CONFIGURE_REQUIRES => {
         'ExtUtils::MakeMaker' => 0,
     },
-    PREREQ_PM     => {
-        'Carp'           => 0,
-        'CHI'            => 0,
-        'Digest::MD5'    => 0,
-        'LWP::UserAgent' => 0,
-        'Moose'          => 0,
-        'Sereal'         => 0,
-        'JSON'           => 0,
-        'XML::Simple'    => 0,
-        'Cwd'            => 0,
+    PREREQ_PM => {
+        'Carp'                  => 0,
+        'CHI'                   => 0,
+        'Digest::MD5'           => 0,
+        'LWP::UserAgent'        => 0,
+        'LWP::Protocol::https'  => 0,
+        'Moose'                 => 0,
+        'Sereal'                => 0,
+        'JSON'                  => 0,
+        'XML::Simple'           => 0,
+        'Cwd'                   => 0,
     },
     TEST_REQUIRES => {
         'Test::More'        => 0,
